@@ -1,0 +1,113 @@
+day43 2018-09-03
+
+1. 内容回顾
+	1. 今日面试题
+	2. CSS
+		1. CSS语法
+			选择器 {属性1：值1;...;}
+		2. CSS导入方式
+			1. 行内样式-->把css样式写到标签的style属性里
+			2. style标签中定义
+			3. 写在单独的css文件中，通过link标签导入
+		3. CSS选择器
+			1. 基本选择器
+				1. ID选择器      --> HTML标签都有唯一的ID
+				2. 类选择器      --> HTML标签可以设置class属性
+				3. 标签选择器    --> 大范围使用
+				4. 通用选择器 *
+			2. 组合选择器
+				1. div p    后代选择器
+				2. div>p    儿子选择器
+				3. div+p    毗邻选择器
+				4. div~p    弟弟选择器 
+			3. 分组和嵌套（全班都没想起来的）
+				div, p {}
+				div.c1 {}
+			4. 属性选择器
+				1. div[s14]              找到有s14这个属性的div标签
+				2. input[type='email']   找到type是email的input标签
+			5. 伪类选择器
+				1. :hover     --> 鼠标移动到标签上时应用的样式
+				2. :focus     --> input标签获取焦点时应用的样式
+			6. 伪元素选择器
+				p:before {    --> 在P标签内部的最前面追加一个内容
+					content: "*";
+					color: red;
+				}
+				p:after {     --> 在P标签内部的最后面追加一个内容
+					
+				}
+				清除浮动：
+				.clearfix:after{
+					content: "";
+					clear: both;
+					display: block;
+				}
+		4. CSS选择器的优先级
+			1. 样式名一样的话
+				类似 变量覆盖 最后加载的那个样式生效
+			2. 样式名不一样
+				根据 权重计算
+				内联样式(1000)>ID选择器(100)>类选择器(10)>元素选择器(1)>继承(0)
+			3. 不讲道理的
+				!important
+		5. CSS属性
+			1. 文字属性相关
+				1. font-family: "字体1", "字体2", 
+				2. font-size        字体大小
+				3. font-weight		字体粗细
+				4. color            字体颜色
+					1. 英文的颜色名    red
+					2. 16进制颜色代码  #FF0000
+					3. RGB             rgb(255, 0, 0)
+					4. rgba(255, 0, 0, 0.4)
+			2. 宽和高
+				1. width             宽
+				2. height			 高
+					只有块儿级标签设置宽和高才有效
+			3. 背景
+				background
+				
+				background-color: red
+				background-image: url(...)
+			4. 文本样式
+				1. 水平居中
+					text-align: center
+				2. 单行文本的垂直居中
+					line-height=父标签的高度
+				3. 文本装饰线
+					text-decoration: none/under-line/over-line/line-through
+			5. CSS盒子模型
+				内容-->padding-->border-->margin
+			6. 浮动
+				float: left/right
+				浮动的副作用
+			7. 定位
+				1. 相对定位     --> 相对自己原来在的位置做定位
+				2. 绝对定位     --> 相对自己已经定位过的祖先标签
+				3. 固定定位     --> 相对于屏幕做定位
+			8. 溢出
+				overflow: hidden/scroll/auto
+			9. 边框
+				border: 1px solid red;
+				border-radius: 50%
+			10. display
+				1. block
+				2. inline
+				3. inline-block
+				4. none
+
+
+2. 今日内容
+	1. z-index和opacity
+	
+	2. 小米商城
+
+
+3. 今日任务
+	1. 小米商城首屏自己独立写完
+
+
+4. 预习
+	https://www.cnblogs.com/liwenzhou/p/8004649.html
+	

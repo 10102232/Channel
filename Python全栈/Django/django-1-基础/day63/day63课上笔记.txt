@@ -1,0 +1,171 @@
+day63  2018-09-30
+
+1. 内容回顾
+	1. day01 Web框架的原理和Django初识
+		1. Web框架的原理
+			1. 理解Web框架的原理
+			2. HTTP请求
+			3. 请求和响应的概念
+		2. Django初识
+			1. Django安装
+			2. Django项目的目录
+				1. settings.py
+					1. HTML文件放在哪里
+					2. 静态文件放在哪里
+					3. 注释掉csrf那一行（46行）  --> 后面讲中间件的时候会说这个
+				2. mangge.py
+					1. startproject
+					2. runserver IP:端口/端口						
+	2. day02 登录
+		1. form表单提交数据
+			1. form标签必须要有action和method属性，如果有上传文件还需要设置enctype=multipart/form-data
+			2. 获取用户输入的标签必须放在form中，同时还要设置name属性
+			3. form表单必须要有submit按钮
+		2. 基础必会三件套  form django.shortcuts import HttpResponse, render, redirect
+			1. HttpResponse('字符串')
+			2. render(request, 'xx.html', {'k1': v1})
+				1. 注意：特殊符号的替换这一步发生在Django服务端
+			3. redirect('路径')
+				1. 路径可以为相对路径('/book_list/'),绝对路径('https://www.luffycity.com')
+				2. 给浏览器返回的是一个特殊的响应，这个响应类似于一个命令，让浏览器去访问我指定的URL
+		3. 模板语言
+			1. 变量  {{ 变量名 }}
+	3. day03 ORM介绍和单表增删改查
+		1. app的概念
+			1. 为什么要有app的概念
+				一个大项目中划分成很多功能模块(app)
+			2. 创建app
+				1. python manage.py startapp app名字
+				2. 在settings.py的INSTALLED_APPS中注册app
+		2. ORM介绍
+			1. ORM的对应关系
+					ORM           DB
+					类    <-->  数据表
+					属性  <-->  字段
+					对象  <-->  数据行
+			2. ORM的优缺点
+				1. 优点
+					1. 开发效率高
+					2. 不用自己写SQL语句
+					3. 后端连得数据库变了，ORM代码不用变(适配性好)
+				2. 缺点
+					1. 执行效率低
+						1. 把ORM语句翻译成SQL语句有一定时间
+						2. ORM翻译的SQL语句有可能不是最优的SQL语句
+			3. Django使用ORM的五大步骤
+				1. 手动创建数据库(create database 数据库表 charset utf8)
+				2. 告诉Django连哪个数据库(settings.py中配置DATABASES)
+				3. 在settings.py同级的__init__.py文件中，告诉Django用pymysql代替mysqldb连接数据库
+				4. 在app/models.py中定义类
+				5. 执行两个命令
+					1. python manage.py makemigrations   --> 记录models.py的变更
+					2. pythonmange.py migrate            --> 将变更翻译成SQL语句，去数据库执行
+			4. 单表的创建和增删改查
+				1. 在models.py中创建类，这个类必须继承models.Model
+				2. 出版社查询
+					1. ORM介绍
+						1. .all()         --> 拿到所有的数据(列表)
+						2. .filter(条件)  --> 拿到符合条件的数据(列表)
+						3. .get(条件)     --> 有且只能有一个返回结果(对象)
+					2. 模板语言
+						1. for循环
+							{% for i in publisher_list %}
+							{% endfor %}
+				3. 添加
+					1. .create(name='沙河出版社')
+				4. 删除
+					1. .delete()
+				5. 编辑
+					1. obj.name = '新值'
+					   obj.save()
+	4. day04 外键的增删改查
+		1. press = models.Foreignkey(to='Press', on_delete=models.CASCADE)
+		2. 外键查询
+			book_obj.press      --> 拿到的是一个和我这本书关联的出版社对象
+			book_obj.press_id   --> 数据库中实际存的字段值
+		3. 外键修改
+			book_obj = Book.objects.create(title='书名', press=出版社对象)
+			book_obj = Book.objects.create(title='书名', press_id=出版社的id值)		
+	5. day05 多对多的增删改查
+		1. books = models.ManyToManyField(to='Book')
+			ORM帮我们创建第三张表
+		2. 多对多的操作方法
+			1. 查询
+				查询作者出版社所有书籍
+					author_obj.books.all()
+			2. 修改
+				author_obj.set([书id1, 书id2, ...])
+				author_obj.add(书id1, 书id2, ...)
+			3. author_obj.clear()  --> 清除对应关系
+			
+2. 今日内容
+看图：https://www.cnblogs.com/liwenzhou/p/8296964.html
+https://www.cnblogs.com/liwenzhou/p/7931828.html
+
+	1. Django模板语言
+		1. 基础语法
+			1. 变量相关{{ 变量名 }}
+			2. 逻辑相关 {% ... %}
+		2. filter(过滤器)
+			1. 基础语法
+				{{ 变量|方法名:'参数' }}
+				注意：|和:左右都不要加空格
+			2. 常用的内置filter
+			
+			3. 自定义filter步骤
+				定义：
+				1. 在app目录下创建一个名为 templatetags 的python包
+				2. 在上面创建的包内部创建一个python文件： ooxx.py
+				3. 在ooxx.py文件中按照固定的格式注册的一个自定义的filter
+					from django import template
+
+					# 固定写法，生成一个注册实例对象
+					register = template.Library()
+
+
+					@register.filter()  # 告诉Django的模板语言我现在注册一个自定义的filter
+					def add_sb(value):
+						"""
+						给任意指定的变量添加sb
+						:param value: |左边被修饰的那个变量
+						:return: 修饰后的变量内容
+						"""
+						return value + 'sb'
+
+
+					@register.filter()
+					def add_str(value, arg):
+						return value + arg
+				使用：
+				1. 重启Django项目
+				2. 在HTML页面中：{% load python文件名 %}
+				3. {{ name|add_str:'大好人' }}
+
+3. 今日作业
+	1. 在路上注意安全
+
+
+4. 国庆作业
+	1. 10.4-10.6作业
+		学员管理系统
+		班级  学生  老师
+		学生外键关联班级
+		老师多对多关联班级
+		10.4 
+		班级的增删改查
+		10.5
+		学生的增删改查
+		10.6
+		老师的增删改查
+		
+
+
+
+
+
+
+
+
+
+
+

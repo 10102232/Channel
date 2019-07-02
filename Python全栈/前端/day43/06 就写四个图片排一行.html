@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .c {
+            width: 1226px;
+            margin: 100px auto 0;
+        }
+        .c1 {
+            float: left;
+        }
+        .c2 {
+            float: right;
+        }
+        .c3 {
+            float: left;
+            margin-left: 15px;
+        }
+        .c3.last {
+            margin-left: 0;
+        }
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div class="c clearfix">
+    <div class="c1">
+        <a href=""><img src="https://dummyimage.com/234x170/000/fff.png" alt=""></a>
+    </div>
+    <div class="c2">
+        <div class="c3 last"><a href=""><img src="https://dummyimage.com/316x170/f00/fff.png" alt=""></a></div>
+        <div class="c3"><a href=""><img src="https://dummyimage.com/316x170/0f0/fff.png" alt=""></a></div>
+        <div class="c3"><a href=""><img src="https://dummyimage.com/316x170/00f/fff.png" alt=""></a></div>
+    </div>
+</div>
+
+</body>
+</html>

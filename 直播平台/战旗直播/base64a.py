@@ -10,3 +10,7 @@ def zqbsurl(streamUrl=''):
     url=re.findall(r'http.+?m3u8',str(url))
     url=url[0].replace('\\','').replace('https','http')
     return url
+
+for i in range(1,9):
+    u='tjyx_tjtv'+str(i)
+    print(u)

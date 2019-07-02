@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+}
+
+.clearfix:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+body {
+    min-width: 1226px;
+}
+
+/*顶部导航栏*/
+.nav {
+    height: 50px;
+    background-color: #333;
+}
+
+.container {
+    width: 1226px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav li a {
+    height: 50px;
+    color: #b0b0b0;
+    line-height: 50px;
+    margin-right: 15px;
+}
+
+.nav li a:hover {
+    color: white;
+}
+
+.fl > li,
+.fl {
+    float: left;
+}
+
+.fr > li,
+.fr {
+    float: right;
+}
+
+/*网站头部*/
+
+.site-header {
+    height: 100px;
+}
+
+.site-header .container {
+    padding: 20px 0;
+}
+
+.logo {
+    width: 234px;
+}
+
+.menu ul {
+    padding-left: 14px;
+}
+
+.menu li a {
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    margin-right: 15px;
+    color: black;
+}
+
+.menu li a:hover {
+    color: #ef702e;
+}
+
+/*搜索框*/
+
+.search-wrapper {
+    position: relative;
+    width: 296px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.search-text {
+    position: absolute;
+    top: 0;
+    right: 51px;
+    z-index: 1;
+    width: 223px;
+    height: 48px;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+    font-size: 24px;
+    line-height: 48px;
+    outline: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    width: 52px;
+    height: 50px;
+    border: 1px solid #e0e0e0;
+    font-size: 24px;
+    line-height: 24px;
+    background: #fff;
+    color: #616161;
+    outline: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.search-btn:hover {
+    background-color: #ff4700;
+    color: white;
+    border: none;
+}
+
+.search-wrapper:hover .search-text,
+.search-wrapper:hover .search-btn {
+    border-color: rgb(176, 176, 176);
+}
+
+/*首屏左侧菜单*/
+.left-menu {
+    width: 234px;
+    padding: 20px 0;
+    background-color: #3d3d3d;
+}
+
+.left-menu a {
+    color: white;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 40px;
+}
+
+.left-menu li:hover {
+    background-color: #ef702e;
+}
+
+.home-sub {
+    margin-top: 15px;
+}
+
+.sub-item {
+    margin-right: 14px;
+}
+
+.sub-item.last {
+    margin-right: 0;
+}

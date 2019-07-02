@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .c {
+            height: 100px;
+            width: 100px;
+        }
+
+        .c1 {
+            background-color: red;
+            float: left;
+        }
+
+        .c2 {
+            background-color: green;
+            float: right;
+        }
+
+        .c3 {
+            height: 200px;
+            width: 100%;
+            background-color: blue;
+        }
+        .clearfix:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="clearfix">
+    <div class="c c1"></div>
+    <div class="c c2"></div>
+</div>
+
+<div class="c3"></div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+day61 2018-09-28 
+
+	
+学技能和学知识有什么区别？
+
+什么叫知识？
+什么叫技能？
+
+
+1. 内容回顾
+	1. 昨日问题
+		1. request.GET（编辑功能）
+			request.GET是取URL里面的参数，和什么请求是没关系的。
+		2. ORM取数据
+			类名.objects.all()
+			类名.objects.get(条件)     --> 有且只能找到一个
+			类名.objects.filter(条件)  --> 可以找多个，找不到也不报错
+		3. 请求的流程
+			画图
+		4. 编辑完保存到数据库
+			.save()
+		5. HTML a标签href属性
+			1. 写绝对URL
+			2. 写相对URL(同网站之间跳转)
+			3. 锚点(同网页标签之间的跳转)
+		6. ORM创建字段
+			id = models.AutoField(primary_key=True)  # -> 创建一个自增的ID列作为主键
+			email = models.CharField(max_length=24)  # -> varchar(32)
+
+	2. 内容回顾
+		出版社表的增删改查
+			查询
+				- ORM的all()查询
+				- 模板语言的for循环
+			增加
+				- ORM .create() 创建数据记录
+				- form表单的提交
+				
+			删除
+				- ORM的.delete()删除操作
+				- a标签拼接href对应的URL
+				
+			编辑
+				第一种：全部用form表单提交
+					把id字段隐藏到form表单里
+				第二种：把id拼接到URL中
+				
+				ORM修改：
+					obj.属性 = '新值'
+					obj.save()
+			
+
+2. 今日内容
+	图书管理系统
+	1. 表结构设计
+		1. id  title 出版社_id
+		2. SQL
+			create table book (
+				id int primary key auto_increment,
+				title varchar(30) not null,
+				press_id int not null,
+				constraint fk_press foreign key(press_id) references press(id) 
+				on delete cascade
+				on update cascade
+			)
+		3. ORM外键
+			press = models.ForignKey(to='Press', on_delete=models.CASCADE)
+			
+	2. 书籍的增删改查
+		1. 查询
+			1. book_obj.press              --> ORM层面封装的，返回的是和我这本书关联的出版社对象
+			2. book_obj.press_id           --> 数据库中真正存在的字段，保存的是和我关联的出版社id值
+		2. 增加
+			1. 用select标签把已经存在的出版社在页面上展示出来
+			   让用户去选择
+			   使用的是：模板语言的for循环
+		3. 删除
+			1. 类似于昨天的操作
+			2. 补充一个3秒钟之后跳转到指定页面的操作
+				1. location.href
+				2. setTimeout()
+				3. setinterval()		
+		4. 编辑
+			1. 类似于于昨天的操作
+			2. 用select标签展示默认的出版社
+				1. Django模板语言中的if判断
+					{% if 条件 %}
+						...
+					{% else %}
+						...
+					{% endif %}
+		
+
+3. 今日任务
+	1. 把课上的代码敲一遍（必须写注释！）
+	2. 独立自己写一遍
+	3. 学员管理系统写学生的增删改查（附加题）
+		班级
+		学生
+		老师
+	
+4. 预习任务
+	1. 多对多的关系
+	https://www.cnblogs.com/liwenzhou/p/8331191.html
+							
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<p>{{ name }}</p>
+<p>
+    {{ d1.name }}:{{ d1.hobby }}|{{ d1.info }}
+    {{ d1.items }}
+</p>
+
+<p>{{ l1.0 }}</p>
+
+<p>{{ p1.name }}的年龄是:{{ p1.age }}</p>
+
+<p>{{ p1.dream }}</p>
+
+<p>{{ s14|default:'好不要脸' }}</p>
+
+<hr>
+
+<p>{{ name2 }}</p>
+<p>{{ name2|lower }}</p>
+
+<p>{{ l1|join:' - ' }}</p>
+<p>l1的长度是：{{ l1|length }}</p>
+<p>文件大小：{{ fize_size }}</p>
+<p>文件大小：{{ fize_size|filesizeformat }}</p>
+<p>{{ name|slice:'1:-1' }}</p>
+
+<p>当前时间是：{{ now }}</p>
+<p>当前时间是：{{ now|date:'Y-m-d H:i:s' }}</p>
+
+<p>{{ a_html }}</p>
+{#<p>{{ a_html|safe }}</p>#}
+
+<p>{{ s1 }}</p>
+<p>{{ s1|truncatechars:7 }}</p>
+<p>{{ s1|truncatewords:7 }}</p>
+<p>{{ s2|truncatewords:7 }}</p>
+<p>{{ s2|cut:' ' }}</p>
+
+<p>{{ now|timesince }}</p>
+
+<hr>
+{% load ooxx %}
+
+<p>{{ name|add_sb }}</p>
+<p>{{ name|add_str:'大好人' }}</p>
+</body>
+</html>

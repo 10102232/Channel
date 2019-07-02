@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <style>
+        .header-search {
+            width: 296px;
+            margin-top: 25px;
+            margin-right: 200px;
+            position: relative;
+            left: 0;
+            top: 100px;
+        }
+        .clearfix:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .header-search {
+            width: 296px;
+            margin-top: 25px;
+        }
+        .hide {
+            display: none !important;
+        }
+        .search-text {
+            position: absolute;
+            top: 0;
+            right: 51px;
+            z-index: 1;
+            width: 223px;
+            height: 50px;
+            padding: 0 10px;
+            border: 1px solid #e0e0e0;
+            font-size: 14px;
+            line-height: 48px;
+            outline: 0;
+            -webkit-transition: all .2s;
+            transition: all .2s;
+        }
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 2;
+            width: 52px;
+            height: 50px;
+            border: 1px solid #e0e0e0;
+            font-size: 24px;
+            line-height: 24px;
+            background: #fff;
+            color: #616161;
+            outline: 0;
+            -webkit-transition: all .2s;
+            transition: all .2s;
+        }
+        .search-btn:hover {
+            background-color: #ff4700;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-search">
+    <form id="J_searchForm" class="search-form clearfix">
+        <label for="search" class="hide">站内搜索</label>
+        <input class="search-text" type="search" id="search" name="keyword" autocomplete="off">
+        <input type="submit" class="search-btn iconfont" value="&#xe61e;">
+    </form>
+</div>
+
+<hr>
+<i style="color: green;font-size: 48px" class="iconfont icon-search"></i>
+
+
+</body>
+</html>

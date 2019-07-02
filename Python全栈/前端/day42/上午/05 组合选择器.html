@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <title>Title</title>
+    <style>
+        /*后代选择器*/
+        /*div span {color: red}*/
+        /*#d1 span {color: red}*/
+        /*儿子选择器*/
+        /*#d2>span {color: red}*/
+        /*毗邻选择器 往下找*/
+        /*p+span {color: red}*/
+        /*弟弟选择器*/
+        /*p~span {color: yellow}*/
+        /*属性选择器*/
+        /*找到有s14属性的标签*/
+        /*div[s14] {color: red}*/
+        /*input[type='text'] {border: 1px solid red}*/
+        /*组合选择器*/
+        /*p>span,*/
+        /*p+span {color: red}*/
+        /*找d1后代有c1样式的span标签*/
+        #d1 span.c1 {color: red}
+
+    </style>
+</head>
+<body>
+
+<div id="d1">
+    <div id="d2">
+        <span>span1</span>
+        <p class="c1">
+            <span class="c1">span2</span>
+        </p>
+    </div>
+</div>
+
+<span>p标签上面的span</span>
+<p>外层的p</p>
+<span>外面的span</span>
+<hr>
+<span>p标签下面的下面的span</span>
+
+<hr>
+
+<div s14="feichanghao">div</div>
+<div s14="youxiu">div</div>
+
+<input type="text">
+<input type="password">
+
+</body>
+</html>

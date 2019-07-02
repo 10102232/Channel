@@ -1,0 +1,124 @@
+day42 2018-08-31
+
+1. 内容回顾
+	1. 课前面试题
+		列表的内置方法：sort()，可以通过key指定排序的依据
+	2. 昨日内容(鞠营营)
+		1. HTML
+			1. HTML结构
+			2. 标签
+				1. 块儿级标签
+					h1~h6
+					p
+					div
+					hr
+					ol>li
+					ul>li
+					table>tr
+				2. 内联标签/行内标签
+					a
+					span
+					input
+					img
+					b、i、u、s
+				3. 标签的嵌套规则
+					1. 标签之间可以嵌套（块儿级标签可以包内联标签）
+					2. p标签不能包p标签和div标签	
+				4. 获取用户输入的那些标签
+					1. form标签不是from   埋下伏笔
+						1. action  --> 控制往哪里提交数据
+						2. method  --> get/post,HTTP请求的两种方法
+						3. enctype --> 当form表单中有文件类型的数据需要上传时
+								multipart/form-data
+					2. input
+						1. type类型有很多
+							1. text
+								- placeholder设置提示语
+							2. password
+							3. date
+							4. email
+								- 通过value属性设置输入框的默认值！
+							
+							
+							5. checkbox
+							6. radio
+								- 通过value属性设置value
+								- 通过checked属性设置默认选中
+							
+							7. submit   --> 提交
+							8. button   --> 普通按钮，多用js代码去绑定事件
+							9. reset    --> 将当前form表单中的输入内容重置
+							
+							10. file
+						2. name属性
+							指定form表单提交数据时的key，用户填写的是value
+							
+					3. select
+						- multiple=multiple  --> 简写 multiple
+						- 内部包含option
+							- 设置value属性
+						- 通过selected属性设置默认选中
+						- 分组的select
+							optgroup
+					4. textarea
+						- cols=列数
+						- rows=行数
+						- name属性
+					5. label
+						多用于和输入框搭配使用
+						两种绑定方式
+							1. label包起来
+							2. 通过for=id值
+					
+2. 今日内容
+	https://www.cnblogs.com/liwenzhou/p/7999532.html
+
+	1. CSS语法
+		选择器 {属性1:值1;属性2:值2;}
+	2. CSS导入方式
+		1. 直接将样式写在标签内部的style属性
+		2. 在head标签中写style标签
+		3. 将样式写在单独的css文件中，通过link标签的href属性导入（项目中多用这种）
+	3. CSS选择器 ***** jQuery选择器类似
+		1. 基本选择器
+		2. 组合选择器
+		3. 属性选择器
+		4. 分组和嵌套
+		5. 伪类和伪元素
+	4. CSS选择器的优先级 *****
+		1. 选择器相同
+			下面的优先级越高，覆盖
+		2. 选择器不同
+			不同的选择器的优先级不一样
+			内联(1000)>ID选择器(100)>类选择器(10)>元素选择器(1)>继承的(0)
+		
+	2. CSS属性
+		1. 高和宽
+			只有块儿级标签才能设置宽和高
+		2. 字体属性
+			1. 用什么字体
+			2. 字体大小
+			3. 字体粗细
+			4. 字体颜色
+			5. 文字装饰效果
+			6. 文字对齐
+			7. 文字缩进
+
+永远不要高估自己！
+只要思想不滑坡，方法总比问题多！
+听人劝，吃饱饭！
+
+
+3. 今日任务
+	1. 回去复习下内置的数据类型和数据类型的方法
+	2. lambda
+	3. 把blog整理好
+	
+
+4. 周末作业
+	1. 先把Blog例子争取自己写一遍
+	2. 把小米商城能写到哪里写到哪里
+		具体页面要求见群内截图
+	
+	造图片的网址：https://dummyimage.com/960x420/000/fff.png
+	
